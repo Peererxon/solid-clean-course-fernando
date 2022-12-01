@@ -1,5 +1,7 @@
 //this file is like a parch of the file 06-classes-a.ts
 (() => {
+  // No aplicando el principio de responsabilidad única
+
   type Gender = "M" | "F";
 
   interface PersonProps {
