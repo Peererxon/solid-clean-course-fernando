@@ -1,9 +1,17 @@
-import { Tesla, Audi, Toyota, Honda } from "./03-liskov-b";
+import { Tesla, Audi, Toyota, Honda, Vehiculo, Ford } from "./03-liskov-b";
 
 (() => {
-  const printCarSeats = (cars: (Tesla | Audi | Toyota | Honda)[]) => {
-    for (const car of cars) {
-      if (car instanceof Tesla) {
+  const printCarSeats = (
+    cars: /* (Tesla | Audi | Toyota | Honda) */ Vehiculo[]
+  ) => {
+    cars.forEach((car) => {
+      //mucho mejor y mas extendible
+      console.log(car.constructor.name, car.getNumberOfSeats());
+    });
+    /* 
+    Esto era la forma antigua
+      for (const car of cars) {
+            if (car instanceof Tesla) {
         console.log("Tesla", car.getNumberOfTeslaSeats());
         continue;
       }
@@ -18,11 +26,17 @@ import { Tesla, Audi, Toyota, Honda } from "./03-liskov-b";
       if (car instanceof Honda) {
         console.log("Honda", car.getNumberOfHondaSeats());
         continue;
-      }
-    }
+      } 
+    }*/
   };
 
-  const cars = [new Tesla(7), new Audi(2), new Toyota(5), new Honda(5)];
+  const cars = [
+    new Tesla(7),
+    new Audi(2),
+    new Toyota(5),
+    new Honda(5),
+    new Ford(4),
+  ];
 
   printCarSeats(cars);
 })();
