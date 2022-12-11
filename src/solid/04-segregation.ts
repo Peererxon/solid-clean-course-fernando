@@ -22,19 +22,19 @@ class Hummingbird {
 }
 
 class Ostrich implements Bird {
-  fly(): void {
+  public fly(): void {
     throw new Error("Esta ave no vuela.");
   }
-  eat(): void {}
-  run(): void {}
+  public eat(): void {}
+  public run(): void {}
   public swim() {}
 }
 
 class Pinguin implements Bird {
-  fly(): void {
+  public fly(): void {
     throw new Error("Esta ave no vuela.");
   }
-  eat(): void {}
-  run(): void {}
+  public eat(): void {}
+  public run(): void {}
   public swim() {}
 }
