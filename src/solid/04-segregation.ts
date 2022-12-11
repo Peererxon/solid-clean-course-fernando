@@ -1,6 +1,6 @@
 //Este archivo es una violacion al principio de ISP
 
-interface Bird {
+/* interface Bird {
   fly(): void;
   eat(): void;
   run(): void;
@@ -36,5 +36,46 @@ class Pinguin implements Bird {
   }
   public eat(): void {}
   public run(): void {}
+  public swim() {}
+} */
+
+// Implementando ISP
+interface Bird {
+  eat(): void;
+}
+
+interface FlyingBird {
+  fly(): number;
+}
+
+interface RunningBird {
+  run(): void;
+}
+
+interface SwimmerBird {
+  swim(): void;
+}
+
+class Tucan implements Bird, FlyingBird {
+  public fly() {
+    return 80;
+  }
+  public eat() {}
+}
+
+class Hummingbird implements Bird, FlyingBird {
+  public fly() {
+    return 100;
+  }
+  public eat() {}
+}
+
+class Ostrich implements Bird, RunningBird {
+  public eat(): void {}
+  public run(): void {}
+}
+
+class Pinguin implements Bird, SwimmerBird {
+  public eat(): void {}
   public swim() {}
 }
